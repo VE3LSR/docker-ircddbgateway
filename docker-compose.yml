@@ -1,0 +1,13 @@
+version: "3"
+services:
+  ircddbgateway:
+    image: ve3lsr/ircddbgateway
+    build: .
+    restart: always
+    ports:
+      - 30001-30007:30001-30007/udp
+      - 20001-20007:20001-20007/udp
+      - 30051-30057:30051-30057/udp
+    volumes:
+      - ./logs:/var/log/opendv/
+      - ./config/ircddbgateway:/etc/ircddbgateway/ircddbgateway:ro
