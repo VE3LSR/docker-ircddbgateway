@@ -20,4 +20,5 @@ Updating is as simple as `docker-compose pull; docker-compose down; docker-compo
 
 If you'd like to build locally, just run `docker-compose build`
 
-You will require `ircddbgatewayd`. This can be from other packages, or the build project.
+The `ircddbgatewayd` binary is built using the build project and exported.
+
