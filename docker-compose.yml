@@ -11,5 +11,5 @@ services:
       - 20001-20007:20001-20007/udp
       - 30051-30057:30051-30057/udp
     volumes:
-      - ./logs:/var/log/opendv/
+      - ./logs:/var/log/ircddbgateway
       - ./config/ircddbgateway:/etc/ircddbgateway/ircddbgateway:ro

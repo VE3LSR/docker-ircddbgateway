@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -yq libwxgtk3.0 wget && apt-get clean && r
 
 # Add the linbpq file
 ADD ircddbgatewayd /usr/local/bin
-ADD opendv /usr/share/
-ADD https://raw.githubusercontent.com/dl5di/OpenDV/master/ircDDBGateway/Data/CCS_Hosts.txt /root
+ADD Data/* /usr/share/ircddbgateway/
 
-ENTRYPOINT /usr/local/bin/ircddbgatewayd -confdir /etc/ircddbgateway
+ENTRYPOINT /usr/local/bin/ircddbgatewayd -confdir /etc/ircddbgateway -logdir /var/log/ircddbgateway -debug
+
