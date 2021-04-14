@@ -27,10 +27,12 @@ MAINTAINER projects@ve3lsr.ca
 RUN apt-get update && apt-get install -y --no-install-recommends \
             libwxgtk3.0 \
             wget \
+            cron \
          && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # Add the linbpq file
-COPY --from=builder /opt/ircDDBGateway/ircDDBGateway/* /usr/local/bin/
+COPY --from=builder /opt/ircDDBGateway/ircDDBGateway/ircddbgatewayd /usr/local/bin/
+COPY --from=builder /opt/ircDDBGateway/RemoteControl/remotecontrold /usr/local/bin/
 COPY --from=builder /opt/ircDDBGateway/Data /usr/share/ircddbgateway/
 
 ENTRYPOINT /usr/local/bin/ircddbgatewayd -confdir /etc/ircddbgateway -logdir /var/log/ircddbgateway -debug
